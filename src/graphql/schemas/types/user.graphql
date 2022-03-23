@@ -1,0 +1,64 @@
+type User {
+  _id: ID!
+  idRol: Int!
+  name: String!
+  mail: String!
+  password: String!
+  institutionalCode: String!
+  phone: String
+  idDocument: Int!
+  document: String!
+  birthday: String
+}
+
+input CreateUser {
+  idRol: Int!
+  name: String!
+  mail: String!
+  password: String!
+  institutionalCode: String!
+  phone: String
+  idDocument: Int!
+  document: String!
+  birthday: String
+}
+
+input UpdateUser {
+  _id: ID!
+  idRol: Int
+  name: String
+  mail: String
+  password: String
+  institutionalCode: String
+  phone: String
+  idDocument: Int
+  document: String
+  birthday: String
+}
+
+input DeleteUser {
+  _id: ID!
+}
+
+input AuthenticateUser {
+  mail: String!
+  password: String!
+}
+
+type Query {
+  users: [User]!
+  usersByID(_id: String): User!
+  usersByDoc(document: String): User!
+  eventInsNot(mail: String, id: Int): String!
+}
+
+type Token {
+  token: String
+}
+
+type Mutation {
+  createUser(user: CreateUser): User!
+  updateUser(user: UpdateUser): User!
+  deleteUser(user: DeleteUser): String!
+  authenticateUser(user: AuthenticateUser): Token
+}

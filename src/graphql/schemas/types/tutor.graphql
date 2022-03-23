@@ -1,0 +1,46 @@
+type Tutor {
+  _id: ID!
+  idRol: Int!
+  name: String!
+  mail: String!
+  phone: String!
+  idDocument: Int!
+  document: String!
+  birthday: String!
+}
+
+input CreateTutor {
+  idRol: Int!
+  name: String!
+  mail: String!
+  phone: String!
+  idDocument: Int!
+  document: String!
+  birthday: String!
+}
+
+input UpdateTutor {
+  _id: ID!
+  idRol: Int
+  name: String
+  mail: String
+  phone: String
+  idDocument: Int
+  document: String
+  birthday: String
+}
+
+input DeleteTutor {
+  _id: ID!
+}
+
+type Query {
+  tutors: [Tutor]!
+  tutorsByDoc(document: String): Tutor!
+}
+
+type Mutation {
+  createTutor(tutor: CreateTutor): Tutor!
+  updateTutor(tutor: UpdateTutor): Tutor!
+  deleteTutor(tutor: DeleteTutor): String!
+}

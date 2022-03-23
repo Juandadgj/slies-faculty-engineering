@@ -1,0 +1,24 @@
+type Document {
+  id: Int!
+  document: String!
+}
+
+input CreateDocument {
+  id: Int!
+  document: String!
+}
+
+input UpdateDocument {
+  id: Int!
+  document: String
+}
+
+type Query {
+  documents: [Document]!
+  documentsByID(id: Int!): Document!
+}
+
+type Mutation {
+  createDocument(document: CreateDocument): Document!
+  updateDocument(document: UpdateDocument): Document!
+}

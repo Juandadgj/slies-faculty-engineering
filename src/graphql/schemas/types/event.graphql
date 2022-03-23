@@ -1,0 +1,75 @@
+type Event {
+  id: Int!
+  name: String!
+  date: String!
+  timeInit: String!
+  duration: String!
+  assistentNumber: Int!
+  idTutor: String!
+  place: String!
+  closingDateRegistration: String!
+  icon: String!
+  finished: Boolean!
+}
+
+input EventFilter {
+  id: Int
+  name: String
+  date: String
+  timeInit: String
+  duration: String
+  assistentNumber: Int
+  idTutor: String
+  place: String
+  closingDateRegistration: String
+  icon: String
+  finished: Boolean
+}
+
+input CreateEvent {
+  id: Int!
+  name: String!
+  date: String!
+  timeInit: String!
+  duration: String!
+  assistentNumber: Int!
+  idTutor: String!
+  place: String!
+  closingDateRegistration: String!
+  icon: String!
+  finished: Boolean!
+}
+
+input UpdateEvent {
+  id: Int!
+  name: String
+  date: String
+  timeInit: String
+  duration: String
+  assistentNumber: Int
+  idTutor: String
+  place: String
+  closingDateRegistration: String
+  icon: String
+  finished: Boolean
+}
+
+input DeleteEvent {
+  id: Int!
+}
+
+type Query {
+  events(filter: EventFilter): [Event]!
+  eventByID(id: Int): [Event]!
+  eventByName(name: String): [Event]!
+  eventByTutor(idTutor: String): [Event]!
+  eventByClosingDate(closingDateRegistration: String): [Event]!
+  eventByFinished(finished: String): [Event]!
+  eventByDate(date: String): [Event]!
+}
+
+type Mutation {
+  createEvent(event: CreateEvent): Event!
+  updateEvent(event: UpdateEvent): Event!
+  deleteEvent(event: DeleteEvent): String!
+}

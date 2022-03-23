@@ -1,0 +1,15 @@
+type Sample {
+  _id: String!
+  field: String!
+}
+input SampleInput {
+  field: String!
+}
+
+type Query {
+  samples: [Sample]!
+}
+
+type Mutation {
+  newSample(sample: SampleInput): Sample
+}
